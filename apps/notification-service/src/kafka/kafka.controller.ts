@@ -8,5 +8,8 @@ export class KafkaController {
   async onOrderStatus(
     @Payload()
     message: KafkaMessage
-  ): Promise<void> {}
+  ): Promise<void> {
+    const { value, topic } = message as any;
+    console.log({ value, topic });
+  }
 }
